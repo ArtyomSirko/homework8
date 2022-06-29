@@ -13,32 +13,36 @@ public class Main {
     }
 
     //метод ко второй задачи
-    public static void yearPhone(int currentYear) {
-        if (currentYear > 2015) {
-            System.out.println("установите приложение для");
-        } else {
-            System.out.println("установите облегченную версию приложения для");
-        }
 
-    }
 
-    public static void ocVersion(int ocUser) {
+    public static void ocVersion(int ocUser,int currentYear) {
         if (ocUser == 0) {
-            System.out.println("IOS");
-        } else if (ocUser == 1) {
-            System.out.println("Android");
-
+            if (currentYear < 2015){
+            System.out.println("установите облегченную версию приложения для IOS");
+        }else {
+            System.out.println("установите версию приложения для IOS");
+        }
+        }  else if(ocUser==1){
+if(currentYear<2015){
+    System.out.println("установите облегченную версию приложения для Android");
+}else {
+    System.out.println("установите версию приложения для Android");
+}
         }
     }
 
     //метод к третий задачи
     public static void daysDelivery(int deliveryDistance) {
-        if (deliveryDistance > 20) {
-            int days = (deliveryDistance + 20) / 40 + 1;
-            System.out.println("Срок достаки составит дня(дней)-" + days);
-        } else System.out.println("срок доставки составит один день");
-    }
+        if (deliveryDistance > 100) {
+            System.out.println("доставка не возможна");
+        } else if (deliveryDistance<100) {
 
+        int days = (deliveryDistance + 20) / 40 + 1;
+            System.out.println("Срок достаки составит дня(дней)-" + days);
+        }else
+
+            System.out.println("срок доставки составит один день");
+    }
     public static void main(String[] args) {
         //Задача 1
         int year1 = 678;
@@ -46,15 +50,15 @@ public class Main {
 
 
         //задача 2
-        int ocUser = 0;
+        int ocUser=1;
         int currentYear = LocalDate.now().getYear();
-        System.out.println(currentYear);
-        yearPhone(currentYear);
-        ocVersion(ocUser);
+       ocVersion(ocUser,currentYear);
+
+
 
 
         //задача 3
-        int deliveryDistance = 847;
+        int deliveryDistance = 13;
         daysDelivery(deliveryDistance);
 
 
